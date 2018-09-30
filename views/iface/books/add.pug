@@ -1,0 +1,74 @@
+extends ../../main
+
+block content
+    .row
+        .col-md-12
+            .card
+                .card-stats
+                    a(href="javascript:history.back()")
+                        .card-header.btn(data-background-color="blue")
+                            i.material-icons(title="Back") keyboard_arrow_left
+
+                if !data
+                    .card-content
+                        h3.text-right Adding a book
+                        div.alert.alert-danger(role="alert" id="error") Error: No data
+                else
+                    .card-content
+                        h2.text-right Adding book
+                        form(method='post')
+
+                            .form-group.label-floating
+                                label.control-label Name
+                                input.form-control(type="text", id="name" name="name", pattern="[a-zA-Z]{1,25}", required)
+
+                            .form-group.label-floating
+                                label.control-label Publication date
+                                input.form_date.form-control(type="text", id="date", name="date", readonly)
+
+                            .form-group.label-floating
+                                label.control-label Author
+                                select.form-control(name="author" id="author" required)
+
+                            .form-group.label-floating
+                                label.control-label Publish
+                                select.form-control(name="publish" id="publish" required)
+
+                            .form-group.label-floating
+                                label.control-label Price
+                                input.form-control(type="text", id="price" name="price", pattern="[0-9]{1,5}", required)
+
+
+                            button.btn.btn-primary.btn-block(type="submit" data-background-color="blue") Add
+
+
+block scripts
+    script.
+        'use strict';
+
+        $(function () {
+          $(".form_date").datetimepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            minView: 'month',
+            todayHighlight: true,
+            endDate: new Date(),
+            timezone: 'GMT'
+          });
+        })
+
+
+
+        const data = !{JSON.stringify(data)};
+
+        const selectAuthor = document.getElementById('author');
+        for (let author of data.authors) {
+          selectAuthor.appendChild(new Option(author.name, author.id))
+        }
+        selectAuthor.value = '';
+
+        const selectPublish = document.getElementById('publish');
+        for (let publish of data.publishes) {
+          selectPublish.appendChild(new Option(publish.name, publish.id))
+        }
+        selectPublish.value = '';

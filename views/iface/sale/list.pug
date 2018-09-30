@@ -1,0 +1,41 @@
+extends ../../main
+
+block content
+    .row
+        .col-md-12
+            .card
+                .card-stats
+                    a(href="/sales/add")
+                        .card-header.btn(data-background-color="blue")
+                            i.material-icons(title="Add new book") add
+
+
+                if !list
+                    .card-content
+                        h3.text-right There are no list
+                else
+                    .card-content
+                        h2.text-right Sales list
+                        if list.length !== 0
+                            table.table
+                                thead.text-primary
+                                    th ID
+                                    th Book
+                                    th Discont
+                                    th Date
+                                    th Count
+                                tbody
+                                    each sale in list
+                                        tr
+                                            td.text-left
+                                                | #{sale.id}
+                                            td.text-left
+                                                | #{sale.book}
+                                            td.text-left
+                                                | #{sale.discont}
+                                            td.text-left
+                                                | #{moment(sale.date).format("YYYY-MM-DD HH:mm:ss")}
+                                            td.text-left
+                                                | #{sale.count}
+
+

@@ -1,0 +1,24 @@
+extends ../../main
+
+block content
+    .row
+        .col-md-12
+            .card
+                .card-stats
+                    a(href="javascript:history.back()")
+                        .card-header.btn(data-background-color="blue")
+                            i.material-icons(title="Back") keyboard_arrow_left
+
+
+                .card-content
+                    h2.text-right Adding writer
+                    form(method='post')
+                        .form-group.label-floating
+                            label.control-label First name
+                            input.form-control(type="text", id="first_name" name="first_name", pattern="[a-zA-Z]{1,25}", required)
+
+                        .form-group.label-floating
+                            label.control-label Last name
+                            input.form-control(type="text", id="last_name" name="last_name", pattern="[a-zA-Z]{1,25}", required)
+
+                        button.btn.btn-primary.btn-block(type="submit" data-background-color="blue") Add

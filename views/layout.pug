@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    title= "Book Shop"
+    link(rel="shortcut icon", href="/assets/img/favicon.ico")
+    link(rel="stylesheet", href="/assets/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/assets/css/bootstrap-datetimepicker.min.css")
+    link(rel="stylesheet", href="/assets/css/timepicki.css")
+    link(rel="stylesheet", href="/assets/css/material-dashboard.css")
+    //link(rel="stylesheet", href="/assets/css/demo.css")
+    //link(rel="stylesheet", href="/assets/css/font-awesome.min.css")
+    link(rel="stylesheet", href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons')
+
+    style.
+      @media screen and (max-width: 800px) {
+        table {
+          table-layout: fixed;
+          word-wrap: break-word;
+        }
+      }
+
+    block css
+
+    meta(charset="utf-8")
+    meta(content="IE=edge,chrome=1", http-equiv='X-UA-Compatible')
+    meta(content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0', name='viewport')
+    meta(name="viewport", content="width=device-width")
+
+  body
+    .wrapper
+      block body
+    script(type="text/javascript", src="/assets/js/knockout-min.js")
+    script(type="text/javascript", src="/assets/js/jquery-3.1.0.min.js")
+    script(type="text/javascript", src="/assets/js/bootstrap.min.js")
+    script(type="text/javascript", src="/assets/js/bootstrap-datetimepicker.min.js")
+    script(type="text/javascript", src="/assets/js/material.min.js")
+    //script(type="text/javascript", src="/assets/js/bootstrap-notify.js")
+    //script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js")
+    script(type="text/javascript", src="/assets/js/material-dashboard.js")
+    script(type="text/javascript", src="/assets/js/moment.js")
+    block scripts
+    script.
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });

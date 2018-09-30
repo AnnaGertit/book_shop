@@ -1,0 +1,62 @@
+extends ../../main
+
+block content
+    .row
+        .col-md-12
+            .card
+                .card-stats
+                    a(href="/books/add")
+                        .card-header.btn(data-background-color="blue")
+                            i.material-icons(title="Add new book") add
+
+                    a(href="/books/writer")
+                        .card-header.btn(data-background-color="blue")
+                            i.material-icons(title="Add new writer") face
+
+                    a(href="/books/store")
+                        .card-header.btn(data-background-color="blue")
+                            i.material-icons(title="Add to store") store
+
+                    a(href="/books/search")
+                        .card-header.btn(data-background-color="blue")
+                            i.material-icons(title="Search") search
+
+                if !list
+                    .card-content
+                        h3.text-right There are no list
+                else
+                    .card-content
+                        h2.text-right Books list
+                        if list.length !== 0
+                            table.table
+                                thead.text-primary
+                                    th Book
+                                    th Author
+                                    th Publish
+                                    th Publication year
+                                    th Price
+                                    th Count
+                                    th
+                                tbody
+                                    each book in list
+                                        tr
+                                            td.text-left
+                                                | #{book.book_name}
+                                            td.text-left
+                                                | #{book.author}
+                                            td.text-left
+                                                | #{book.publish_name}
+                                            td.text-left
+                                                | #{book.book_publication}
+                                            td.text-left
+                                                | #{book.price}
+                                            td.text-left
+                                                | #{book.count}
+                                            td.text-left.col-md-1
+                                                .td-actions
+                                                    a(href=`/books/delete?id=${book.id}`)
+                                                        button.btn.btn-primary.btn-simple.btn-xs
+                                                            i.material-icons delete
+
+
+

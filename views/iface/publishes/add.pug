@@ -1,0 +1,28 @@
+extends ../../main
+
+block content
+    .row
+        .col-md-12
+            .card
+                .card-stats
+                    a(href="javascript:history.back()")
+                        .card-header.btn(data-background-color="blue")
+                            i.material-icons(title="Back") keyboard_arrow_left
+
+
+                .card-content
+                    h2.text-right Adding publishes
+                    form(method='post')
+                        .form-group.label-floating
+                            label.control-label Name
+                            input.form-control(type="text", id="name" name="name", pattern="[a-zA-Z ]{1,20}", required)
+
+                        .form-group.label-floating
+                            label.control-label Export days
+                            input.form-control(type="text", id="export_day" name="export_day", pattern="[0-9]{1,2}", required)
+
+                        .form-group.label-floating
+                            label.control-label Telephone
+                            input.form-control(type="text", id="telephone" name="telephone", pattern="^375[0-9]{9}$", required)
+
+                        button.btn.btn-primary.btn-block(type="submit" data-background-color="blue") Add

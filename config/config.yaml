@@ -1,0 +1,11 @@
+port: 8800
+
+mysql:
+  max_connections : 10
+  host            : '127.0.0.1'
+  user            : 'ussd_promo'
+  password        : 'rFk42pvZa'
+  database        : 'book_shop'
+  charset         : "utf8"
+  timezone        : "+03:00"
+  show_query      : 1

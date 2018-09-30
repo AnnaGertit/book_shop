@@ -1,0 +1,34 @@
+extends ../../main
+
+block content
+    .row
+        .col-md-12
+            .card
+                .card-stats
+                    a(href="javascript:history.back()")
+                        .card-header.btn(data-background-color="blue")
+                            i.material-icons(title="Back") keyboard_arrow_left
+
+
+                .card-content
+                    h2.text-right Adding sale
+                    form(method='post')
+
+                        .form-group.label-floating
+                            label.control-label Books
+                            select.form-control(name="books" id="books" required)
+
+
+                        button.btn.btn-primary.btn-block(type="submit" data-background-color="blue") Add
+
+block scripts
+    script.
+      'use strict';
+
+      const data = !{JSON.stringify(data)};
+
+      const selectBook = document.getElementById('books');
+      for (let books of data) {
+        selectBook.appendChild(new Option(books.book_info, books.id))
+      }
+      selectBook.value = '';
