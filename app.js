@@ -27,6 +27,7 @@ app.use('/books/search', require('./routes/book/search'));
 
 app.use('/sales', require('./routes/sale/list'));
 app.use('/sales/add', require('./routes/sale/add'));
+app.use('/sales/cost', require('./routes/sale/cost'));
 
 app.use('/publishes', require('./routes/publishes/list'));
 app.use('/publishes/add', require('./routes/publishes/add'));
