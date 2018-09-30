@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
   let list;
   try {
     list = await dbHelper.sale.list();
-    console.log(list);
   } catch (err) {
     console.error(err);
   }
