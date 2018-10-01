@@ -1,0 +1,70 @@
+extends ../../main
+
+block content
+    .row
+        .col-md-12
+            script(src='https://www.google.com/jsapi')
+            .card
+                .card-stats
+                    a(href="javascript:history.back()")
+                        .card-header.btn(data-background-color="blue")
+                            i.material-icons(title="Back") keyboard_arrow_left
+
+                .card-content
+                    #container
+
+
+
+
+
+block scripts
+    script.
+      const list = !{JSON.stringify(list)};
+      console.log(list)
+      const array = [];
+      for (const i of list){
+        array.push({
+          name: i.name,
+          y: i.day
+        })
+      }
+      Highcharts.chart('container', {
+        chart: {
+          type: 'column'
+        },
+        title: {
+          text: 'Need day for delivery'
+        },
+        xAxis: {
+          type: 'category'
+        },
+        yAxis: {
+          title: {
+            text: 'Days'
+          }
+
+        },
+        legend: {
+          enabled: false
+        },
+        plotOptions: {
+          series: {
+            borderWidth: 0,
+            dataLabels: {
+              enabled: true,
+              format: '{point.y}'
+            }
+          }
+        },
+
+        tooltip: {
+          headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+          pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y} days</b> for delivery<br/>'
+        },
+
+        "series": [{
+          "name": "Publicistic center",
+          "colorByPoint": true,
+          "data": array
+        }]
+      });
