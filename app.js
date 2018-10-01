@@ -31,6 +31,7 @@ app.use('/sales/cost', require('./routes/sale/cost'));
 
 app.use('/publishes', require('./routes/publishes/list'));
 app.use('/publishes/add', require('./routes/publishes/add'));
+app.use('/publishes/low_price', require('./routes/publishes/low_price'));
 app.use('/publishes/delete', require('./routes/publishes/delete'));
 
 app.use('/', require('./routes/index'));

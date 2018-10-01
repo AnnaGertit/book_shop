@@ -21,6 +21,7 @@ block content
                                     th Publish
                                     th Telephone
                                     th Days for export
+                                    th Low price
                                     th
                                 tbody
                                     each publish in list
@@ -31,6 +32,11 @@ block content
                                                 | #{publish.telephone}
                                             td.text-left
                                                 | #{publish.day}
+                                            td.text-left.col-md-1
+                                                .td-actions
+                                                    a(href=`/publishes/low_price?id=${publish.id}`)
+                                                        button.btn.btn-primary.btn-simple.btn-xs
+                                                            i.material-icons trending_down
                                             td.text-left.col-md-1
                                                 .td-actions
                                                     a(href=`/publishes/delete?id=${publish.id}`)

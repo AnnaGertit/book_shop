@@ -1,0 +1,37 @@
+extends ../../main
+
+block content
+    .row
+        .col-md-12
+            .card
+                .card-stats
+                    a(href="javascript:history.back()")
+                        .card-header.btn(data-background-color="blue")
+                            i.material-icons(title="Back") keyboard_arrow_left
+
+                if !price
+                    .card-content
+                        h3.text-right Books not found
+                else
+                    .card-content
+                        h2.text-right Low price book
+                        if price.length !== 0
+                            table.table
+                                thead.text-primary
+                                    th First name
+                                    th Last name
+                                    th Book
+                                    th Price
+
+                                tbody
+                                    each book in price
+                                        tr
+                                            td.text-left
+                                                | #{book.first}
+                                            td.text-left
+                                                | #{book.last}
+                                            td.text-left
+                                                | #{book.book}
+                                            td.text-left
+                                                | #{book.price}
+
