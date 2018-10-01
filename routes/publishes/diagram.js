@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
 
   let list;
   try {
-    list = await dbHelper.publishes.list();
+    list = await dbHelper.publishes.listDays();
     console.log(list);
   } catch (err) {
     console.error(err);
