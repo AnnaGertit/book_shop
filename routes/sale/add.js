@@ -16,9 +16,19 @@ router.get('/', async (req, res) => {
 
 
 router.post('/', async (req, res) => {
+  const id = req.body.books;
   try {
     let newTransaction = await dbHelper.sale.newTransaction();
-    await dbHelper.sale.addTransaction(req.body.books, newTransaction);
+    await dbHelper.sale.addTransaction(id, newTransaction);
+  } catch (err) {
+    console.error(err)
+  }
+
+  try {
+    const price = await dbHelper.sale.getPrice(id);
+    if (price[0].price > 100) {
+      await dbHelper.sale.updatePrice(id);
+    }
   } catch (err) {
     console.error(err)
   }

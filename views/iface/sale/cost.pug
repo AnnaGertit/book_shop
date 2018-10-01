@@ -21,8 +21,9 @@ block content
 
                         button.btn.btn-primary.btn-block(type="submit" data-background-color="blue") Get
 
-                    if data.length !== 0
-                        p Total sum: #{data}
+                    if data
+                        if data.length !== 0
+                            p Total sum: #{data}
 
 
 block scripts
